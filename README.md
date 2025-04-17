@@ -23,10 +23,14 @@ sudo systemctl enable docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-**Netdata Container:**
+## Netdata Container:
 sudo docker run -d --name=netdata \
   -p 19999:19999 \
   --cap-add=SYS_PTRACE \
   --security-opt apparmor=unconfined \
   --restart unless-stopped \
   netdata/netdata
+
+## Accessed Dashboard:
+http://<ec2-public-ip>:19999
+
